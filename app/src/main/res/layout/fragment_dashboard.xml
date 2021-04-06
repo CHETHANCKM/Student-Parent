@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DashboardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Pnotes"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp">
+            </Button>
+
+            <Button
+                android:id="@+id/Phomework"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp">
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Ptimetable"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp">
+            </Button>
+
+            <Button
+                android:id="@+id/Pattendance"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp">
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Presults"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp">
+            </Button>
+
+            <Button
+                android:id="@+id/Pevents"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp">
+            </Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

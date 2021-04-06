@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.deepika.myapplication" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StudentParentApp" >
+<!--        <activity-->
+<!--            android:name=".tt"-->
+<!--            android:label="@string/title_activity_tt"-->
+<!--            android:theme="@style/Theme.StudentParentApp.NoActionBar" >-->
+<!--        </activity>-->
+<!--        <activity-->
+<!--            android:name=".Teachome"-->
+<!--            android:label="@string/title_activity_teachome"-->
+<!--            android:theme="@style/Theme.StudentParentApp.NoActionBar" >-->
+<!--        </activity>-->
+<!--        <activity-->
+<!--            android:name=".Thomepage"-->
+<!--            android:label="@string/title_activity_thomepage"-->
+<!--            android:theme="@style/Theme.StudentParentApp.NoActionBar" >-->
+<!--        </activity>-->
+<!--        <activity-->
+<!--            android:name=".teach_home"-->
+<!--            android:label="@string/title_activity_teach_home"-->
+<!--            android:theme="@style/Theme.StudentParentApp.NoActionBar" >-->
+<!--        </activity>-->
+        <activity android:name=".homework" />
+        <activity
+            android:name=".homepage"
+            android:label="@string/title_activity_homepage"
+            android:theme="@style/Theme.StudentParentApp.NoActionBar" />
+        <activity android:name=".parent" />
+        <activity android:name=".teacher_login" />
+        <activity android:name=".parent_login" />
+        <activity android:name=".main_login" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
