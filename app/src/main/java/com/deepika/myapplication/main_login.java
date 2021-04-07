@@ -21,7 +21,7 @@ import android.widget.Button;
         parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(main_login.this, parent_login.class);
+                Intent intent = new Intent(main_login.this, parent_login2.class);
                 startActivity(intent);
             }
         });

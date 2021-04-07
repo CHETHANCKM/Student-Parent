@@ -96,6 +96,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
+            android:id="@+id/t_login"
             android:text="Faculty Login"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
