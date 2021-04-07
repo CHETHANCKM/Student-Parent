@@ -96,7 +96,7 @@ public class add_new_student extends AppCompatActivity {
                                     } else {
                                         // If sign in fails, display a message to the user.
                                         mAuth.signOut();
-                                        Toast.makeText(add_new_student.this, "Authentication failed.",
+                                        Toast.makeText(add_new_student.this, "User Exits",
                                                 Toast.LENGTH_SHORT).show();
 
                                     }
