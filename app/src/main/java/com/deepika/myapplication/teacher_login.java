@@ -48,8 +48,8 @@ public class teacher_login extends AppCompatActivity {
                     facpswd.requestFocus();
                 }
 
-                String phoneNumber = number +"@teacher.com";
-                Toast.makeText(teacher_login.this, ""+password, Toast.LENGTH_SHORT).show();
+                String phoneNumber = number +"@teacherait.com";
+                Toast.makeText(teacher_login.this, "Logging in", Toast.LENGTH_SHORT).show();
 
                 mAuth.signInWithEmailAndPassword(phoneNumber, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -76,14 +76,4 @@ public class teacher_login extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent intent = new Intent(this, teacher_homepage.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        }
-    }
 }

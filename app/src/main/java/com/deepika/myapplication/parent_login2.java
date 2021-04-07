@@ -59,7 +59,9 @@ public class parent_login2 extends AppCompatActivity {
                     phno.requestFocus();
                 }
 
-                String phoneNumber = number +"@student.com";
+                String phoneNumber = number +"@studentait.com";
+
+                Toast.makeText(parent_login2.this, ""+phoneNumber+" "+password, Toast.LENGTH_SHORT).show();
 
                 mAuth.signInWithEmailAndPassword(phoneNumber, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -89,17 +91,5 @@ public class parent_login2 extends AppCompatActivity {
 
     }
 
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent intent = new Intent(this, homepage.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
-            startActivity(intent);
-        }
-    }
 
 }

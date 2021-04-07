@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".NoticeBoard">
-
+    android:layout_height="match_parent"
+    tools:context=".events">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
 
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/teacher2"
@@ -29,263 +28,218 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/seguisb"
-                android:text="Notice Board"
+                android:text="Live Events"
                 android:textColor="@color/black"
                 android:textSize="25dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-
                 android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@color/white">
+
+                android:background="@color/white"
+                android:layout_height="100dp"
+                android:layout_weight="1" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:orientation="vertical">
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/seguisb"
-                        android:text="Title "
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
+                        android:text="Event name" />
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description"
+                        android:textSize="18dp"
                         android:textColor="@color/black"
-                        android:textSize="18dp" />
+                        android:text="XYZ school ground, abc street, " />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:textSize="12dp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"
+                        android:text="08/04/2020, at 5:00PM" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:layout_height="100dp"
+                android:layout_weight="1" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="date"
+                        android:textSize="20dp"
                         android:textColor="@color/black"
-                        android:textSize="12dp" />
+                        android:fontFamily="@font/seguisb"
+                        android:text="Event name" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        android:text="XYZ school ground, abc street, " />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:textSize="12dp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"
+                        android:text="08/04/2020, at 5:00PM" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-
                 android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:layout_height="100dp"
+                android:layout_weight="1" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:padding="10dp"
                     android:background="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:orientation="vertical">
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/seguisb"
-                        android:text="Title "
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
+                        android:text="Event name" />
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description"
+                        android:textSize="18dp"
                         android:textColor="@color/black"
-                        android:textSize="18dp" />
+                        android:text="XYZ school ground, abc street, " />
 
                     <TextView
 
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="date"
+                        android:textSize="12dp"
                         android:textColor="@color/black"
-                        android:textSize="12dp" />
+                        android:layout_height="wrap_content"
+                        android:text="08/04/2020, at 5:00PM" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-
                 android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:layout_height="100dp"
+                android:layout_weight="1" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:padding="10dp"
                     android:background="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:orientation="vertical">
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/seguisb"
-                        android:text="Title "
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
+                        android:text="Event name" />
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description"
+                        android:textSize="18dp"
                         android:textColor="@color/black"
-                        android:textSize="18dp" />
+                        android:text="XYZ school ground, abc street, " />
 
                     <TextView
 
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="date"
+                        android:textSize="12dp"
                         android:textColor="@color/black"
-                        android:textSize="12dp" />
+                        android:layout_height="wrap_content"
+                        android:text="08/04/2020, at 5:00PM" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-
                 android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:layout_height="100dp"
+                android:layout_weight="1" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:padding="10dp"
                     android:background="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:orientation="vertical">
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/seguisb"
-                        android:text="Title "
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
+                        android:text="Event name" />
 
                     <TextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Description"
+                        android:textSize="18dp"
                         android:textColor="@color/black"
-                        android:textSize="18dp" />
+                        android:text="XYZ school ground, abc street, " />
 
                     <TextView
 
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="date"
+                        android:textSize="12dp"
                         android:textColor="@color/black"
-                        android:textSize="12dp" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-
-                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/seguisb"
-                        android:text="Title "
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Description"
-                        android:textColor="@color/black"
-                        android:textSize="18dp" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="date"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/seguisb"
-                        android:text="Title "
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Description"
-                        android:textColor="@color/black"
-                        android:textSize="18dp" />
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="date"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
+                        android:text="08/04/2020, at 5:00PM" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

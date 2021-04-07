@@ -18,7 +18,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/student"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="9dp"
@@ -36,9 +36,9 @@
                 android:weightSum="2">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/s_notes"
+                    android:layout_width="100dp"
                     android:layout_height="140dp"
-
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/white">
@@ -47,11 +47,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Notes" />
+                        android:text="Notes"
+                        android:textColor="@color/black" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/home_works"
+                    android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -63,7 +65,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Attendence" />
+                        android:text="Home Works"
+                        android:textColor="@color/black" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
@@ -75,7 +78,7 @@
                 android:weightSum="2">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -86,11 +89,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Results" />
+                        android:text="Time Table"
+                        android:textColor="@color/black" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -101,7 +105,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Attendence" />
+                        android:text="Results"
+                        android:textColor="@color/black" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
@@ -112,7 +117,8 @@
                 android:weightSum="2">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/even_s"
+                    android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -123,11 +129,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="TextView" />
+                        android:text="Events"
+                        android:textColor="@color/black" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
@@ -138,7 +145,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="TextView" />
+                        android:text="Fees Activity"
+                        android:textColor="@color/black" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </LinearLayout>
