@@ -1,29 +1,89 @@
 package com.deepika.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class teacher_login extends AppCompatActivity {
     Button t_login;
+    TextInputLayout facid, facpswd;
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_login);
 
         t_login = findViewById(R.id.t_login);
+        facid = findViewById(R.id.facid);
+        facpswd = findViewById(R.id.facpas);
+        mAuth = FirebaseAuth.getInstance();
 
 
         t_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(teacher_login.this, teacher_homepage.class);
-                startActivity(intent);
+                String number = facid.getEditText().getText().toString();
+                String password = facpswd.getEditText().getText().toString();
+
+                if (number.isEmpty() || number.length() < 3) {
+                    facid.setError("Valid ID is required");
+                    facid.requestFocus();
+                    return;
+                }
+
+                if(password.isEmpty())
+                {
+                    facpswd.setError("Password required");
+                    facpswd.requestFocus();
+                }
+
+                String phoneNumber = number +"@teacher.com";
+                Toast.makeText(teacher_login.this, ""+password, Toast.LENGTH_SHORT).show();
+
+                mAuth.signInWithEmailAndPassword(phoneNumber, password)
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+
+
+                                    Intent intent = new Intent(teacher_login.this, teacher_homepage.class);
+                                    startActivity(intent);
+
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    mAuth.signOut();
+                                    Toast.makeText(teacher_login.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+
+                                }
+                            }
+                        });
+
             }
         });
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            Intent intent = new Intent(this, teacher_homepage.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
     }
 }

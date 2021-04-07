@@ -12,22 +12,19 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class homepage extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -64,7 +61,9 @@ public class homepage extends AppCompatActivity {
                         break;
 
                     case R.id.nav_logout:
-                        Toast.makeText(homepage.this, "Logging out", Toast.LENGTH_SHORT).show();
+                            FirebaseAuth.getInstance().signOut();
+                            Intent intent = new Intent(homepage.this, main_login.class);
+                            startActivity(intent);
                         break;
 
 
@@ -74,10 +73,6 @@ public class homepage extends AppCompatActivity {
 
             }
         });
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
 
 
         if (savedInstanceState == null) {

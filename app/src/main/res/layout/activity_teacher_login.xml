@@ -53,7 +53,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/textField"
+            android:id="@+id/facid"
             app:boxStrokeColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             android:textColorHint="@color/black"
             app:hintTextColor="@color/black"
             app:hintEnabled="true"
-            android:hint="Faculty Email address">
+            android:hint="Faculty ID">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -78,10 +78,9 @@
             app:boxStrokeColor="@color/black"
             android:layout_width="match_parent"
             android:hint="Password"
+            android:id="@+id/facpas"
             android:textColorHint="@color/black"
             app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:endIconMode="password_toggle"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText

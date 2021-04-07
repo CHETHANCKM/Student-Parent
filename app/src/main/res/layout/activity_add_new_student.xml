@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".VerifyPhoneActivity">
+    tools:context=".add_new_student">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +32,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/seguisb"
-                    android:text="OTP\n Verification"
+                    android:text="Add new\nStudent"
                     android:textColor="@color/black"
                     android:textSize="28dp"
 
@@ -43,23 +44,21 @@
                     android:id="@+id/imageView2"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@mipmap/parents"
+                    android:src="@mipmap/main"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/otp_new"
+            android:id="@+id/student_id"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Password"
+            android:layout_height="wrap_content"
+            android:hint="Student ID"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/black"
-
             app:hintAnimationEnabled="true"
             app:hintEnabled="true"
             app:hintTextColor="@color/black">
@@ -67,20 +66,78 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/student_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Student Name"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/parent_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Parents Name"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_new"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="New Password"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/otp_verf"
+            android:id="@+id/add_s"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:layout_marginTop="25dp"
             android:backgroundTint="@color/blue"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="VERIFY OTP"
+            android:text="Add student"
             android:textColor="@color/white">
 
         </com.google.android.material.button.MaterialButton>

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -18,10 +17,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class teacher_homepage extends AppCompatActivity {
-    private AppBarConfiguration mAppBarConfiguration;
     private DrawerLayout drawer;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +43,11 @@ public class teacher_homepage extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.nav_dashboard:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new DashboardFragment()).commit();
+                                new teacher_dashboard()).commit();
                         break;
                     case R.id.nav_noticeboard:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new NoticeBoard()).commit();
+                                new teacher_noticeboard()).commit();
                         break;
                     case R.id.nav_discussion:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -55,11 +55,13 @@ public class teacher_homepage extends AppCompatActivity {
                         break;
                     case R.id.nav_myprofile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new myprofile()).commit();
+                                new teacher_profile()).commit();
                         break;
 
                     case R.id.nav_logout:
-                        Toast.makeText(teacher_homepage.this, "Logging out", Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(teacher_homepage.this, main_login.class);
+                        startActivity(intent);
                         break;
 
 
@@ -70,14 +72,11 @@ public class teacher_homepage extends AppCompatActivity {
             }
         });
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
 
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new DashboardFragment()).commit();
+                    new teacher_dashboard()).commit();
             navigationView.setCheckedItem(R.id.nav_dashboard);
         }
     }
