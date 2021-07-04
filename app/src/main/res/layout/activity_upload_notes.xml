@@ -52,7 +52,7 @@
         </FrameLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/student_id"
+            android:id="@+id/up_tilte"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,8 +72,8 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/student_name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/customerSpinnerLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Subject"
@@ -83,7 +83,8 @@
             app:hintEnabled="true"
             app:hintTextColor="@color/black">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/customerTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black" />
@@ -110,7 +111,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/add_s"
+            android:id="@+id/up_desc"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_gravity="center"
