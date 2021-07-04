@@ -19,8 +19,8 @@ import java.util.HashMap;
 
 public class add_events extends AppCompatActivity {
 
-    TextInputLayout title, subject, desc, due;
-    Button post;
+    TextInputLayout eventtitle, eventdesc, eventdate;
+    Button event_post;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
 
@@ -29,11 +29,11 @@ public class add_events extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_events);
 
-        title = findViewById(R.id.eventtitle);
-        subject = findViewById(R.id.eventsubject);
-        desc = findViewById(R.id.eventdesc);
-        due = findViewById(R.id.eventdate);
-        post = findViewById(R.id.event_post);
+        eventtitle = findViewById(R.id.eventtitle);
+
+        eventdesc = findViewById(R.id.eventdesc);
+        eventdate = findViewById(R.id.eventdate);
+        event_post = findViewById(R.id.event_post);
 
 
 
@@ -41,15 +41,15 @@ public class add_events extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
-        post.setOnClickListener(new View.OnClickListener() {
+
+        event_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String utitle = title.getEditText().getText().toString();
-                String usub = subject.getEditText().getText().toString();
-                String udesc = desc.getEditText().getText().toString();
-                String udue = due.getEditText().getText().toString();
+                String utitle = eventtitle.getEditText().getText().toString();
+                String udesc = eventdesc.getEditText().getText().toString();
+                String udue = eventdate.getEditText().getText().toString();
 
-                if (utitle.isEmpty() || usub.isEmpty() || udesc.isEmpty() || udue.isEmpty())
+                if (utitle.isEmpty() || udesc.isEmpty() || udue.isEmpty())
                 {
 
                 }
@@ -57,7 +57,6 @@ public class add_events extends AppCompatActivity {
                 {
                     HashMap<Object, String> hashMap = new HashMap<>();
                     hashMap.put("Title", utitle);
-                    hashMap.put("Subject", usub);
                     hashMap.put("Description", udesc);
                     hashMap.put("Eventdate", udue);
                     final String timestamp = String.valueOf(System.currentTimeMillis());

@@ -52,6 +52,7 @@
                 android:backgroundTint="#B2F4DC"
                 android:fontFamily="@font/seguisb"
                 android:text="Parent Login"
+                android:layout_marginBottom="10dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="18dp" />

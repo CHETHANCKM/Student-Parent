@@ -2,55 +2,95 @@ package com.deepika.myapplication;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link teacher_noticeboard#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+
 public class teacher_noticeboard extends Fragment {
+    TextInputLayout eventtitle, eventdesc, eventdate, eventsubject;
+    Button event_post;
+    FirebaseAuth mAuth;
+    DatabaseReference mDatabase;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public teacher_noticeboard() {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
-    public static teacher_noticeboard newInstance(String param1, String param2) {
-        teacher_noticeboard fragment = new teacher_noticeboard();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teacher_noticeboard, container, false);
+        View v =  inflater.inflate(R.layout.fragment_teacher_noticeboard, container, false);
+
+        eventtitle = v.findViewById(R.id.eventtitle);
+        eventsubject = v.findViewById(R.id.eventsubject);
+        eventdesc = v.findViewById(R.id.eventdesc);
+        eventdate = v.findViewById(R.id.eventdate);
+        event_post = v.findViewById(R.id.event_post);
+
+
+
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
+        event_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String utitle = eventtitle.getEditText().getText().toString();
+                String udesc = eventdesc.getEditText().getText().toString();
+                String udue = eventdate.getEditText().getText().toString();
+                String esubject = eventsubject.getEditText().getText().toString();
+
+                if (utitle.isEmpty() || esubject.isEmpty() || udesc.isEmpty() || udue.isEmpty())
+                {
+
+                }
+                else
+                {
+                    HashMap<Object, String> hashMap = new HashMap<>();
+                    hashMap.put("Title", utitle);
+                    hashMap.put("Description", udesc);
+                    hashMap.put("EventSubject", esubject);
+                    hashMap.put("Eventdate", udue);
+                    final String timestamp = String.valueOf(System.currentTimeMillis());
+
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Notice Board");
+
+                    reference.child(timestamp).setValue(hashMap)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getContext(), "Event updated", Toast.LENGTH_LONG).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+            }
+        });
+
+        return v;
+
     }
 }

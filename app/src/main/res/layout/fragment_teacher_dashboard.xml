@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".teacher_dashboard">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -119,6 +118,7 @@
                 android:weightSum="2">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/timetable"
                     android:layout_width="100dp"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
@@ -135,7 +135,9 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/mystudents"
                     android:layout_width="100dp"
+                    android:clickable="true"
                     android:layout_height="140dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"

@@ -1,7 +1,6 @@
 package com.deepika.myapplication;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -14,7 +13,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,10 +47,7 @@ public class teacher_homepage extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new teacher_noticeboard()).commit();
                         break;
-                    case R.id.nav_discussion:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new Discussion()).commit();
-                        break;
+
                     case R.id.nav_myprofile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new teacher_profile()).commit();

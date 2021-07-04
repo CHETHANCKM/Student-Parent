@@ -1,8 +1,10 @@
 package com.deepika.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -17,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DashboardFragment extends Fragment {
     TextView studentw;
     FirebaseAuth mAuth;
-    CardView s_notes,even_s, homework, tt, fees;
+    CardView s_notes,even_s, homework, tt, fees, results;
 
 
     public DashboardFragment() {
@@ -37,6 +39,7 @@ public class DashboardFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         s_notes = v.findViewById(R.id.s_notes);
         even_s = v.findViewById(R.id.even_s);
+        results = v.findViewById(R.id.results);
         homework = v.findViewById(R.id.home_works);
         studentw.setText("Welcome\n"+mAuth.getCurrentUser().getEmail().toString());
 
@@ -54,6 +57,16 @@ public class DashboardFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), homework.class);
                 startActivity(intent);
+            }
+        });
+
+        results.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://results.vtu.ac.in/";
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.launchUrl(getContext(), Uri.parse(url));
             }
         });
 

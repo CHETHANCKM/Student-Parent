@@ -7,15 +7,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,10 +47,7 @@ public class homepage extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new NoticeBoard()).commit();
                         break;
-                    case R.id.nav_discussion:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new Discussion()).commit();
-                        break;
+
                     case R.id.nav_myprofile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 new myprofile()).commit();

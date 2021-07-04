@@ -14,10 +14,6 @@
             android:icon="@drawable/ic_baseline_content_paste_24"
             android:title="Notice Board" />
         <item
-            android:id="@+id/nav_discussion"
-            android:icon="@drawable/ic_baseline_chat_24"
-            android:title="Discussion" />
-        <item
             android:id="@+id/nav_myprofile"
             android:icon="@drawable/ic_baseline_person_24"
             android:title="My Profile" />

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
-    android:layout_height="match_parent"
-    tools:context=".add_new_student">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,6 +57,7 @@
             android:layout_height="wrap_content"
             android:hint="Title"
             android:textColorHint="@color/black"
+            android:layout_marginBottom="10dp"
             app:boxStrokeColor="@color/black"
             app:hintAnimationEnabled="true"
             app:hintEnabled="true"
@@ -79,6 +79,7 @@
             android:layout_height="match_parent"
             android:hint="Event description"
             android:textColorHint="@color/black"
+            android:layout_marginBottom="10dp"
             app:boxStrokeColor="@color/black"
             app:hintAnimationEnabled="true"
             app:hintEnabled="true"
@@ -99,6 +100,7 @@
             android:hint="Date"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/black"
+            android:layout_marginBottom="10dp"
             app:hintAnimationEnabled="true"
             app:hintEnabled="true"
             app:hintTextColor="@color/black">

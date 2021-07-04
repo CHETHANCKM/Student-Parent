@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentParentApp">
+        <activity android:name=".time_table_upload"></activity>
         <activity android:name=".events"></activity>
         <activity android:name=".english" />
         <activity android:name=".kannada" />
@@ -24,9 +25,13 @@
         <activity android:name=".upload_hw" />
         <activity android:name=".add_new_student" />
         <activity android:name=".parent" />
-        <activity android:name=".teacher_login" />
-        <activity android:name=".homework"/>
-        <activity android:name=".parent_login2" />
+        <activity
+            android:name=".teacher_login"
+            android:noHistory="true" />
+        <activity android:name=".homework" />
+        <activity
+            android:name=".parent_login2"
+            android:noHistory="true" />
         <activity android:name=".main_login" />
         <activity android:name=".homepage" />
         <activity android:name=".teacher_homepage" />

@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class teacher_dashboard extends Fragment {
 
-    CardView add_newstudent, homework, events, upload_notes;
+    CardView add_newstudent, homework, events, upload_notes,mystudents, timetable;
     TextView teacher;
     FirebaseAuth mAuth;
     public teacher_dashboard() {
@@ -33,6 +33,8 @@ public class teacher_dashboard extends Fragment {
         homework = v.findViewById(R.id.homework);
         events = v.findViewById(R.id.events);
         upload_notes = v.findViewById(R.id.upload_notes);
+        mystudents = v.findViewById(R.id.mystudents);
+        timetable = v.findViewById(R.id.timetable);
 
         teacher = v.findViewById(R.id.teacher);
 
@@ -40,6 +42,21 @@ public class teacher_dashboard extends Fragment {
 
         teacher.setText("Welcome\n"+mAuth.getCurrentUser().getEmail().toString());
 
+        mystudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), students_list.class);
+                startActivity(intent);
+            }
+        });
+
+        timetable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), time_table_upload.class);
+                startActivity(intent);
+            }
+        });
 
         add_newstudent.setOnClickListener(new View.OnClickListener() {
             @Override

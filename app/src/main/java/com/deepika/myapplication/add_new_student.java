@@ -3,11 +3,7 @@ package com.deepika.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -56,9 +52,13 @@ public class add_new_student extends AppCompatActivity {
                 String email = studentid+"@studentait.com";
 
 
-                if (name.isEmpty() || studentid.isEmpty() || parents.isEmpty() || pass.isEmpty())
+                if (name.isEmpty() || studentid.isEmpty() || parents.isEmpty())
                 {
 
+                }
+                else if (pass.length()<6)
+                {
+                    Toast.makeText(add_new_student.this, "Password must be >6 digits", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -75,7 +75,6 @@ public class add_new_student extends AppCompatActivity {
                                         hashMap.put("student_id", studentid);
                                         hashMap.put("parent", parents);
                                         hashMap.put("uid", user.getUid());
-                                        hashMap.put("emial", user.getEmail());
 
                                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Students");
                                         reference.child(user.getUid()).setValue(hashMap)
@@ -95,8 +94,7 @@ public class add_new_student extends AppCompatActivity {
 
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        mAuth.signOut();
-                                        Toast.makeText(add_new_student.this, "User Exits",
+                                        Toast.makeText(add_new_student.this, ""+task.getException(),
                                                 Toast.LENGTH_SHORT).show();
 
                                     }

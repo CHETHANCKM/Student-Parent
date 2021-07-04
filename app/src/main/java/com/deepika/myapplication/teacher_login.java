@@ -49,7 +49,7 @@ public class teacher_login extends AppCompatActivity {
                 }
 
                 String phoneNumber = number +"@teacherait.com";
-                Toast.makeText(teacher_login.this, "Logging in", Toast.LENGTH_SHORT).show();
+                Toast.makeText(teacher_login.this, ""+phoneNumber, Toast.LENGTH_SHORT).show();
 
                 mAuth.signInWithEmailAndPassword(phoneNumber, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -64,7 +64,7 @@ public class teacher_login extends AppCompatActivity {
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     mAuth.signOut();
-                                    Toast.makeText(teacher_login.this, "Authentication failed.",
+                                    Toast.makeText(teacher_login.this, ""+task.getException().toString(),
                                             Toast.LENGTH_SHORT).show();
 
                                 }
