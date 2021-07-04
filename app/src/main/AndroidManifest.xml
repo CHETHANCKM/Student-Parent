@@ -14,10 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentParentApp">
-        <activity android:name=".time_table_upload"></activity>
-        <activity android:name=".events"></activity>
-        <activity android:name=".english" />
-        <activity android:name=".kannada" />
+        <activity android:name=".notes.Webpage"></activity>
+        <activity android:name=".notes.subject_notes" />
+        <activity android:name=".time_table_upload" />
+        <activity android:name=".events" />
         <activity android:name=".Notes" />
         <activity android:name=".students_list" />
         <activity android:name=".add_events" />

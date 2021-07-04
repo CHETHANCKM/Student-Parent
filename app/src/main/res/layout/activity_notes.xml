@@ -69,15 +69,16 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/hindi"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/white"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:background="@color/white">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:background="@mipmap/img_graduation"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/img_graduation">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -94,15 +95,16 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/maths"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/white"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:background="@color/white">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:background="@mipmap/img_learnlanguage"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/img_learnlanguage">
 
                     <TextView
                         android:id="@+id/textView6"
@@ -120,14 +122,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/science"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_margin="15dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:background="@mipmap/img_reachout"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/img_reachout">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -144,15 +147,16 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/social"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/white"
-                android:layout_margin="15dp">
+                android:layout_margin="15dp"
+                android:background="@color/white">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:background="@mipmap/img_cyclingbmx"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/img_cyclingbmx">
 
                     <TextView
                         android:layout_width="wrap_content"

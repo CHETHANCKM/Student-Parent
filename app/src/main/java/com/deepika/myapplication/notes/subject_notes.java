@@ -1,15 +1,17 @@
-package com.deepika.myapplication;
+package com.deepika.myapplication.notes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.deepika.myapplication.adapters.HomeWorkAdapter;
-import com.deepika.myapplication.models.HomeWorkModel;
+import com.deepika.myapplication.R;
+import com.deepika.myapplication.adapters.NotesAdapter;
+import com.deepika.myapplication.models.NotesModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,29 +20,36 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class
-homework extends AppCompatActivity {
+
+public class subject_notes extends AppCompatActivity {
 
     RecyclerView recyclerView;
     private DatabaseReference mDatabase;
-    ArrayList<HomeWorkModel> list;
+    NotesAdapter notesAdapter;
+    ArrayList<NotesModel> list;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homework);
-
+        setContentView(R.layout.activity_subject_notes);
         recyclerView = findViewById(R.id.recyclerView);
 
+        Intent intent = getIntent();
+        String subject = intent.getStringExtra("subject");
+
+
         mDatabase = FirebaseDatabase.getInstance()
-                .getReference().child("Homeworks");
+                .getReference().child("Notes").child(subject);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
         list = new ArrayList<>();
 
-        HomeWorkAdapter homeWorkAdapter = new HomeWorkAdapter(this, list);
-        homeWorkAdapter.setHasStableIds(true);
-        recyclerView.setAdapter(homeWorkAdapter);
+        NotesAdapter notesAdapter = new NotesAdapter(this, list);
+        notesAdapter.setHasStableIds(true);
+        recyclerView.setAdapter(notesAdapter);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -48,17 +57,20 @@ homework extends AppCompatActivity {
                 list.clear();
                 for (DataSnapshot ds: snapshot.getChildren())
                 {
-                    HomeWorkModel schemeModel = ds.getValue(HomeWorkModel.class);
+                    NotesModel schemeModel = ds.getValue(NotesModel.class);
                     list.add(schemeModel);
                 }
-                homeWorkAdapter.notifyDataSetChanged();
+                notesAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(homework.this, ""+error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(subject_notes.this, ""+error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
 
     }
 }
