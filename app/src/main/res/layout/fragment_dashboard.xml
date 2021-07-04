@@ -75,6 +75,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_book_opened"
+                            app:layout_constraintBottom_toTopOf="@+id/textView213"
+                            app:layout_constraintStart_toStartOf="parent" />
+
                         <TextView
                             android:id="@+id/textView213"
                             android:layout_width="0dp"
@@ -106,6 +116,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_home_alt2"
+                            app:layout_constraintBottom_toTopOf="@+id/textView21"
+                            app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/textView21"
@@ -143,6 +163,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_time"
+                            app:layout_constraintBottom_toTopOf="@+id/textView14"
+                            app:layout_constraintStart_toStartOf="parent" />
+
                         <TextView
                             android:id="@+id/textView14"
                             android:layout_width="0dp"
@@ -171,6 +201,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_cup"
+                            app:layout_constraintBottom_toTopOf="@+id/textView22"
+                            app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/textView22"
@@ -209,6 +249,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <ImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_calendar_event"
+                            app:layout_constraintBottom_toTopOf="@+id/textView23"
+                            app:layout_constraintStart_toStartOf="parent" />
+
                         <TextView
                             android:id="@+id/textView23"
                             android:layout_width="0dp"
@@ -237,6 +287,16 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/imageView12"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_dolar"
+                            app:layout_constraintBottom_toTopOf="@+id/textView24"
+                            app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/textView24"
