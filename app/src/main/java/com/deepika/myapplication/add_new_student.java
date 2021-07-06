@@ -52,7 +52,7 @@ public class add_new_student extends AppCompatActivity {
                 String email = studentid+"@studentait.com";
 
 
-                if (name.isEmpty() || studentid.isEmpty() || parents.isEmpty())
+                if (name.isEmpty() || studentid.length()!=3 || parents.isEmpty())
                 {
 
                 }
@@ -62,6 +62,17 @@ public class add_new_student extends AppCompatActivity {
                 }
                 else
                 {
+                    try
+                    {
+                        int d = Integer.parseInt("d");
+
+                        Toast.makeText(getApplicationContext(), d, Toast.LENGTH_SHORT).show();
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+
                     mAuth.createUserWithEmailAndPassword(email, pass)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override

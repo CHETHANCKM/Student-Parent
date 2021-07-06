@@ -48,35 +48,36 @@ public class parent_login2 extends AppCompatActivity {
                     return;
                 }
 
-                if(password.isEmpty())
+                else if(password.isEmpty())
                 {
                     phno.setError("Password required");
                     phno.requestFocus();
                 }
+                else {
 
-                String phoneNumber = number +"@studentait.com";
+                    String phoneNumber = number + "@studentait.com";
 
-                Toast.makeText(parent_login2.this, ""+phoneNumber+" "+password, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(parent_login2.this, "Signing in", Toast.LENGTH_SHORT).show();
 
-                mAuth.signInWithEmailAndPassword(phoneNumber, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                    mAuth.signInWithEmailAndPassword(phoneNumber, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
 
 
-                            Intent intent = new Intent(parent_login2.this, homepage.class);
-                            startActivity(intent);
+                                Intent intent = new Intent(parent_login2.this, homepage.class);
+                                startActivity(intent);
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            mAuth.signOut();
-                            Toast.makeText(parent_login2.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                mAuth.signOut();
+                                Toast.makeText(parent_login2.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
 
+                            }
                         }
-                    }
-                });
-
+                    });
+                }
 
 
             }

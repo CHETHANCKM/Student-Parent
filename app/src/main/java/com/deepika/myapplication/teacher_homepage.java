@@ -1,11 +1,13 @@
 package com.deepika.myapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -20,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class teacher_homepage extends AppCompatActivity {
     private DrawerLayout drawer;
     private FirebaseAuth mAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +52,10 @@ public class teacher_homepage extends AppCompatActivity {
                                 new teacher_noticeboard()).commit();
                         break;
 
-                    case R.id.nav_myprofile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new teacher_profile()).commit();
-                        break;
+//                    case R.id.nav_myprofile:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                                new teacher_profile()).commit();
+//                        break;
 
                     case R.id.nav_logout:
                         FirebaseAuth.getInstance().signOut();
@@ -74,6 +78,26 @@ public class teacher_homepage extends AppCompatActivity {
                     new teacher_dashboard()).commit();
             navigationView.setCheckedItem(R.id.nav_dashboard);
         }
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        teacher_homepage.this.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override

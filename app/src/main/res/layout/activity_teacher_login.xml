@@ -61,6 +61,8 @@
             android:textColorHint="@color/black"
             app:hintTextColor="@color/black"
             app:hintEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="3"
             android:hint="Faculty ID">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +76,6 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="10dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="@color/black"
             android:layout_width="match_parent"

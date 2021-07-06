@@ -3,13 +3,19 @@ package com.deepika.myapplication.notes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Base64;
+import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.deepika.myapplication.R;
 
 public class Webpage extends AppCompatActivity {
-    WebView webView1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,12 +24,31 @@ public class Webpage extends AppCompatActivity {
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
 
-        webView1 = findViewById(R.id.webView);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
-        String doc="<iframe src='http://docs.google.com/gview?embedded=true&url="+url+"width='100%' height='100%' style='border: none;'></iframe>";
-        webView1.getSettings().setJavaScriptEnabled(true);
-        webView1.getSettings().setAllowFileAccess(true);
-        webView1.loadData( doc , "text/html", "UTF-8");
+        WebView mywebview = (WebView) findViewById(R.id.webView);
+        String unencodedHtml = "<html><body>'%23' is the percent code for ‘#‘ </body></html>";
+        String encodedHtml = Base64.encodeToString(unencodedHtml.getBytes(), Base64.NO_PADDING);
+        mywebview.loadData(encodedHtml, "text/html", "base64");
+        WebSettings webSettings = mywebview.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        mywebview.setWebViewClient(new WebViewClient(){
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                Toast.makeText(Webpage.this, "Loading document.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                mywebview.loadUrl("javascript:(function() { " +
+                        "document.querySelector('[role=\"toolbar\"]').remove();})()");
+            }
+        });
+        mywebview.loadUrl("https://docs.google.com/viewer?embedded=true&url="+url);
 
     }
 }

@@ -65,6 +65,7 @@ public class upload_notes extends AppCompatActivity {
         add_file.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(upload_notes.this, "Please wait", Toast.LENGTH_SHORT).show();
                 
                 String tilte = up_tilte.getText().toString();
                 String desc = up_desccrip.getText().toString();
@@ -79,8 +80,10 @@ public class upload_notes extends AppCompatActivity {
                 }
                 else
                 {
+                    Toast.makeText(upload_notes.this, "Uploading file", Toast.LENGTH_SHORT).show();
                     mStorageRef = FirebaseStorage.getInstance().getReference().child(filepathandname);
                     mStorageRef.putFile(file_uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();

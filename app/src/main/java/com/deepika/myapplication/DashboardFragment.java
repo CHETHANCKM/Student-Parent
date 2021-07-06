@@ -1,9 +1,11 @@
 package com.deepika.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -19,13 +21,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DashboardFragment extends Fragment {
     TextView studentw;
     FirebaseAuth mAuth;
-    CardView s_notes,even_s, homework, tt, fees, results;
+    CardView s_notes,even_s, homework, tt, fees, results, view_timetable;
 
 
     public DashboardFragment() {
         // Required empty public constructor
     }
-
 
 
 
@@ -42,11 +43,21 @@ public class DashboardFragment extends Fragment {
         results = v.findViewById(R.id.results);
         homework = v.findViewById(R.id.home_works);
         studentw.setText("Welcome\n"+mAuth.getCurrentUser().getEmail().toString());
+        view_timetable = v.findViewById(R.id.view_timetable);
 
         s_notes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Notes.class);
+                startActivity(intent);
+            }
+        });
+
+
+        view_timetable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), view_time_table.class);
                 startActivity(intent);
             }
         });
@@ -80,4 +91,6 @@ public class DashboardFragment extends Fragment {
 
         return v;
     }
+
+
 }

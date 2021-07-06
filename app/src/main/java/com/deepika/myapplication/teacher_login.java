@@ -36,41 +36,39 @@ public class teacher_login extends AppCompatActivity {
                 String number = facid.getEditText().getText().toString();
                 String password = facpswd.getEditText().getText().toString();
 
-                if (number.isEmpty() || number.length() < 3) {
+                if (number.isEmpty() || number.length() != 3) {
                     facid.setError("Valid ID is required");
                     facid.requestFocus();
                     return;
-                }
-
-                if(password.isEmpty())
+                }else if(password.isEmpty())
                 {
                     facpswd.setError("Password required");
                     facpswd.requestFocus();
                 }
+                else {
+                    String phoneNumber = number + "@teacherait.com";
+                    Toast.makeText(teacher_login.this, "Signing in", Toast.LENGTH_SHORT).show();
 
-                String phoneNumber = number +"@teacherait.com";
-                Toast.makeText(teacher_login.this, ""+phoneNumber, Toast.LENGTH_SHORT).show();
-
-                mAuth.signInWithEmailAndPassword(phoneNumber, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
+                    mAuth.signInWithEmailAndPassword(phoneNumber, password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
 
 
-                                    Intent intent = new Intent(teacher_login.this, teacher_homepage.class);
-                                    startActivity(intent);
+                                        Intent intent = new Intent(teacher_login.this, teacher_homepage.class);
+                                        startActivity(intent);
 
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    mAuth.signOut();
-                                    Toast.makeText(teacher_login.this, ""+task.getException().toString(),
-                                            Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        mAuth.signOut();
+                                        Toast.makeText(teacher_login.this, "" + task.getException().toString(),
+                                                Toast.LENGTH_SHORT).show();
 
+                                    }
                                 }
-                            }
-                        });
-
+                            });
+                }
             }
         });
 

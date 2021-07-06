@@ -2,6 +2,7 @@ package com.deepika.myapplication.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,10 +56,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ""+url, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(v.getContext(), Webpage.class);
-                intent.putExtra("url", url);
-                v.getContext().startActivity(intent);
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.parse(url), "application/pdf");
+                v.getContext().startActivity(Intent.createChooser(intent, "Choose an Application:"));
             }
         });
     }

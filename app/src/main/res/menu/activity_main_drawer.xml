@@ -13,10 +13,6 @@
             android:id="@+id/nav_noticeboard"
             android:icon="@drawable/ic_baseline_content_paste_24"
             android:title="Notice Board" />
-        <item
-            android:id="@+id/nav_myprofile"
-            android:icon="@drawable/ic_baseline_person_24"
-            android:title="My Profile" />
 
         <item
             android:id="@+id/nav_logout"

@@ -1,8 +1,11 @@
 package com.deepika.myapplication;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -10,10 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class teacher_dashboard extends Fragment {
+public class teacher_dashboard extends Fragment{
 
     CardView add_newstudent, homework, events, upload_notes,mystudents, timetable;
     TextView teacher;
@@ -21,6 +25,7 @@ public class teacher_dashboard extends Fragment {
     public teacher_dashboard() {
         // Required empty public constructor
     }
+
 
 
 
@@ -92,6 +97,11 @@ public class teacher_dashboard extends Fragment {
             }
         });
 
+
+
+
         return v;
     }
+
+
 }

@@ -61,11 +61,14 @@
             app:boxStrokeColor="@color/black"
             app:hintAnimationEnabled="true"
             app:hintEnabled="true"
+            app:counterMaxLength="3"
+            app:counterEnabled="true"
             app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -38,7 +38,7 @@
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/seguisb"
 
-                android:text="A student parent interactive application"
+                android:text="A parent teacher interactive application"
                 android:textAlignment="center"
                 android:textColor="#595773  "
                 android:textSize="16dp" />

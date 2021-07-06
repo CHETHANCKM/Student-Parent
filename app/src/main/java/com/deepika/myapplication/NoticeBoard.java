@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.deepika.myapplication.adapters.noticeadapater;
 import com.deepika.myapplication.models.NoticeModel;
@@ -22,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class NoticeBoard extends Fragment {
+public class NoticeBoard extends Fragment{
 
 
     RecyclerView recyclerView;
@@ -50,7 +51,6 @@ public class NoticeBoard extends Fragment {
         noticeadapater = new noticeadapater(getContext(), list);
         noticeadapater.setHasStableIds(true);
         recyclerView.setAdapter(noticeadapater);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         mDatabase = FirebaseDatabase.getInstance()
                 .getReference().child("Notice Board");
@@ -73,8 +73,8 @@ public class NoticeBoard extends Fragment {
             }
         });
 
-
-
         return v;
     }
+
+
 }

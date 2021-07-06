@@ -1,5 +1,6 @@
 package com.deepika.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,10 +50,10 @@ public class homepage extends AppCompatActivity {
                                 new NoticeBoard()).commit();
                         break;
 
-                    case R.id.nav_myprofile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                new myprofile()).commit();
-                        break;
+//                    case R.id.nav_myprofile:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                                new myprofile()).commit();
+//                        break;
 
                     case R.id.nav_logout:
                             FirebaseAuth.getInstance().signOut();
@@ -73,6 +75,25 @@ public class homepage extends AppCompatActivity {
                     new DashboardFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_dashboard);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        homepage.this.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override

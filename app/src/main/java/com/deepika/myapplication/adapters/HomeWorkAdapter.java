@@ -17,13 +17,14 @@ import java.util.ArrayList;
 public class HomeWorkAdapter extends RecyclerView.Adapter<HomeWorkAdapter.MyHolder> {
 
     Context context;
+    ArrayList<HomeWorkModel> list;
 
     public HomeWorkAdapter(Context context, ArrayList<HomeWorkModel> list) {
         this.context = context;
         this.list = list;
     }
 
-    ArrayList<HomeWorkModel> list;
+
 
 
     @Override
